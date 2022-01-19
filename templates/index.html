@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        {% for post in post_list %}
+        <div class="col-md-8">
+            <div class="card-body">
+                <div class="image-container">
+                    {% if "placeholder" in post.posted_image.url %}
+                    <img class="card-img-top" 
+                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                    {% else %}
+                    <img class="card-img-top" src="{{ post.posted_img.url }}">
+                    {% endif %}
+                    <div class="image-flash">
+                        <p class="author">{{ post.author }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {{ contact.full_name|upper }}<br>
+
+        {% endfor %}
+        {% if is_paginated%}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
