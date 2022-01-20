@@ -4,7 +4,8 @@
 
 <div class="container-fluid">
     <div class="row">
-        {% for post in post_list %}
+        
+        {% for post in storie_list %}
         <div class="col-md-8">
             <div class="card-body">
                 <div class="image-container">
@@ -12,11 +13,31 @@
                     <img class="card-img-top" 
                     src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
                     {% else %}
-                    <img class="card-img-top" src="{{ post.posted_img.url }}">
+                    <img class="card-img-top" src="{{ post.posted_image.url }}">
                     {% endif %}
-                    <div class="image-flash">
+                    <div class="image-pop">
                         <p class="author">{{ post.author }}</p>
                     </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="card-title">Special title treatment</h5>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                              <a href="#" class="btn btn-primary">Comment</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="card-title">Special title treatment</h5>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                              <a href="#" class="btn btn-primary">Comment</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>

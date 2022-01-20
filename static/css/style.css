@@ -1,0 +1,43 @@
+body {
+    background-color: #fff;
+}
+
+.styl {
+    font-family: 'Dongle', sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: rgb(148, 137, 137);
+}
+.styl:active,
+.styl:hover {
+    background-color: black;
+}
+.logo {
+    color: #536565;
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: 'Dongle', sans-serif;
+    padding: 20px;
+}
+.image-container {
+    position: relative;
+}
+.pop {
+    position: absolute;
+    background-color: rgba(170, 135, 135, 0,6);
+}
+
+.author {
+    color:black;
+
+}
+
+.light bg {
+    background-color: #536565;
+}
+.main-bc {
+    background-color: #fff;
+}
+.dark-bg {
+    background-color: #536565;
+}
