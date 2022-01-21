@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8 text">
+            <!-- Comment title comes here-->
+            <h1 class="comment-title">{{ post.title }}</h1>
+            <!-- Post author comes first than the date when posted-->
+            <p class="comment-text">{{ post.author }} | {{ post.posted_date }}</p>
+        </div>
+        <div class="image-container-fluid">
+            <div class="d-none d-md-block col-sm-8">
+                {% if 'placeholder' in post.posted_image.url %}
+                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                {% else %}
+                <img src=" {{ post.posted_image.url }}" width="100%">
+                {%endif%}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="card-bc">
+            
+        </div>
+        
+    </div>
+</div>
+
+{% endblock content %}

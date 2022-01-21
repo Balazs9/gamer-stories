@@ -8,7 +8,8 @@ STATUS = ((0, "Drafts"), (1, "Published"))
 class Storie(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="posts")
     posted_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     posted_date = models.DateTimeField(auto_now_add=True)
@@ -28,7 +29,8 @@ class Storie(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Storie, on_delete=models.CASCADE, related_name="comments")
+    post = models.ForeignKey(Storie, on_delete=models.CASCADE,
+                             related_name="comments")
     name = models.CharField(max_length=50)
     email = models.EmailField()
     textbox = models.TextField()
