@@ -6,40 +6,33 @@
     <div class="row">
         
         {% for post in storie_list %}
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card-body">
-                <div class="image-container">
-                    {% if "placeholder" in post.posted_image.url %}
-                    <img class="card-img-top" 
-                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
-                    {% else %}
-                    <img class="card-img-top" src="{{ post.posted_image.url }}">
-                    {% endif %}
-                    <div class="image-pop">
-                        <p class="author"><i class="fas fa-comment"></i> {{ post.author }}</p>
-                        <a href="{% url 'comment' post.slug %}" class="btn btn-primary">Comment</a>
-                    </div>
-                    <p class="card-text text-muted h5"><i class="fas fa-comments"></i> {{ post.posted_date }} <i class="fas fa-thumbs-up"></i> {{ post.likes }}</p>
+                <div class="image-container-fluid">
                     <div class="row">
-                        <div class="col-sm-6">
-                          <div class="card">
-                            <div class="card-body">
-                              <h5 class="card-title"> {{ post.title }} </h5>
-                              <p class="card-text text-muted"> {{ post.content }} </p>
-                              <a href="{% url 'comment' post.slug %}" class="btn btn-primary">Comment</a>
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-body-box">
+                                    <h5 class="card-title"> {{ post.title }} </h5>
+                                    {% if "placeholder" in post.posted_image.url %}
+                                    <img class="card-img-top" 
+                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                    {% else %}
+                                    <img class="card-img-top" src="{{ post.posted_image.url }}">
+                                    {% endif %}
+                                    <div class="image-pop">
+                                        <p class="author"><i class="fas fa-comment"></i> {{ post.author }}</p>
+                                        
+                                    </div>
+                                    <p class="card-text text-muted"> {{ post.content }} </p>
+                                    <a href="{% url 'storie_detail' post.slug %}" class="btn btn-primary">Comment</a>
+                                    <p class="card-text text-muted h5"><i class="fas fa-comments"></i> {{ post.posted_date }} <i class="fas fa-thumbs-up"></i> {{ post.likes }}</p>
+                                </div>
                             </div>
-                          </div>
+                            
                         </div>
-                        <div class="col-sm-6">
-                          <div class="card">
-                            <div class="card-body">
-                              <h5 class="card-title"> {{ post.title }} </h5>
-                              <p class="card-text text-muted"> {{ post.content }} </p>
-                              <a href="{% url 'comment' post.slug %}" class="btn btn-primary">Comment</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>

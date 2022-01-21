@@ -7,7 +7,7 @@ class StorieList(generic.ListView):
     model = Storie
     queryset = Storie.objects.filter(status=1).order_by('posted_date')
     template_name = 'index.html'
-    paginate_by = 8
+    paginate_by = 4
 
 
 class StorieDetail(View):

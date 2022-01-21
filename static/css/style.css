@@ -5,7 +5,7 @@ body {
 .styl {
     font-family: 'Dongle', sans-serif;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: rgb(148, 137, 137);
 }
 .styl:active,
@@ -14,14 +14,23 @@ body {
 }
 .logo {
     color: #536565;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 900;
     font-family: 'Dongle', sans-serif;
     padding: 20px;
 }
-
+.logo:hover {
+    color:rgb(82, 68, 68);
+}
 .image-container {
     position: relative;
+}
+.card-body {
+    margin-top: 80px;
+}
+.card-body-box:hover {
+    border-color:rgb(82, 68, 68);
+    box-shadow: 3px 3px 3px 3px rgba(82, 68, 68);
 }
 .pop {
     position: absolute;
