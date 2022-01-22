@@ -6,21 +6,21 @@ body {
     font-family: 'Dongle', sans-serif;
     font-weight: 500;
     font-size: 1.8rem;
-    color: rgb(148, 137, 137);
+    color: #ffc31f;
 }
 .styl:active,
 .styl:hover {
-    background-color: black;
+    background-color: #eee31b;
 }
 .logo {
-    color: #536565;
+    color: #c9782c;
     font-size: 3rem;
     font-weight: 900;
     font-family: 'Dongle', sans-serif;
-    padding: 20px;
+    padding: 10px;
 }
 .logo:hover {
-    color:rgb(82, 68, 68);
+    color: #ab0d17;
 }
 .image-container {
     position: relative;
@@ -54,4 +54,33 @@ body {
 .text {
     padding-top: 90px;
 }
+.signin {
+    padding-top: 80px;
+}
+.btn-signin {
+    background-color: #919999;
+}
+.btn-signin:hover {
+    background-color: #666b6b;
+}
 
+.register {
+    padding-top: 80px;
+}
+.btn-regist {
+    background-color: #919999;
+}
+.btn-regist:hover {
+    background-color: #666b6b;
+}
+
+.logout {
+    padding-top: 80px;
+}
+
+.btn-out {
+    background-color: #919999;
+}
+.btn-out:hover {
+    background-color: #666b6b;
+}

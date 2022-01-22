@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body class="d-flex flex-column h-100 main-bc">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark">
         <div class="container-fluid">
             <a class="navbar-styl" href="{% url 'home' %}"><span class="logo">Gamer Stories</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,14 +35,14 @@
                   </li>
                   {% if user.is_authenticated %}
                   <li class="nav-item">
-                    <a class="nav-link " href="#">Log out</a>
+                    <a class="nav-link " href="{% url 'account_logout' %}">Log out</a>
                   </li>
                   {% else %}
                   <li class="nav-item">
-                    <a class="nav-link " href="#">Sign In</a>
+                    <a class="nav-link " href="{% url 'account_login' %}">Sign In</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
+                    <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                   </li>
                   {% endif %}
                 </ul>
