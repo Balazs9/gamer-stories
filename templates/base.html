@@ -7,7 +7,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;700&display=swap" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/@multiavatar/multiavatar/multiavatar.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
@@ -21,14 +22,16 @@
     <script src="https://kit.fontawesome.com/134b89db0f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body class="d-flex flex-column h-100 main-bc">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark">
+
+<body class="d-flex flex-column h-100 main-bg">
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-white bg-dark">
         <div class="container-fluid">
-            <a class="navbar-styl" href="{% url 'home' %}"><span class="logo">Gamer Stories</span></a>
+            <a class="navbar styl" href="{% url 'home' %}"><span class="logo">Gamer Stories</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <div class="collapse navbar-collapse menu" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                   <li class="nav-item active">
                     <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
@@ -75,6 +78,7 @@
             <i class="fab fa-facebook"></i>
             <i class="fab fa-twitter-square"></i>
             <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
         </p>
         <p class="m-0 text-center text-black">COPYRIGHTS
             2020-2021 (c) Gie Katon (https://giekaton.com)

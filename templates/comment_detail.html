@@ -2,7 +2,9 @@
 
 {% block content %}
 
-<div class="container-fluid">
+{% load crispy_forms_tags %}
+
+<div class="container">
     <div class="row">
         <div class="col-sm-8 text">
             <!-- Comment title comes here-->
@@ -21,15 +23,83 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="card-bc">
-            <!--------- Comment for the posts goes here ---------->
-            
-            
-        </div>
-        
-    </div>
+<div class="row">
+
 </div>
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4 mt-3 left top">
+            <!--------- Comment for the posts goes here ---------->
+            <div class="card-body">
+                <p class="card-text">{{ post.content | safe }}</p>
+                <div class="row">
+                    <div class="col-1">
+                        {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url 'storie_detail' post.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if like %}
+
+                            <button type="submit" class="btn-like" name="bloglike" value="{{post.slug}}"><i class="fas fa-thumbs-up"></i></button>
+
+                            {% else %}
+                            <button type="submit" class="btn-like" name="bloglike" value="{{post.slug}}"><i class="fas fa-thumbs-down"></i></button>
+
+                            {%endif%}
+
+                        </form>
+
+                        {% else %}
+                        
+                        <span class="text-secondary"><i class="fas fa-thumbs-down"></i></span>
+
+                        {%endif%}
+                        <span class="text-secondary">{{ post.gamers_like }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8 card mb-4 mt-3">
+            <h3>Comments:</h3>
+            <div class="card-body">
+                <!---------- for loop to iterate throuh in the comments ---------->
+                {% for comment in comments %}
+                <div class="comments">
+                    <p class="name">{{ comment.name }}
+                        <span class="dates">
+                            {{ comment.posted_date }}
+                        </span>
+                    </p>
+                    {{ comment.textbox | linebreaks }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4 card mb-4 mt-3">
+            <div class="card-body">
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Comment waiting for approval
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                </form>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
 {% endblock content %}

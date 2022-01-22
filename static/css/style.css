@@ -1,23 +1,26 @@
 body {
     background-color: #fff;
+    font-size: x-large;
 }
 
 .styl {
     font-family: 'Dongle', sans-serif;
     font-weight: 500;
     font-size: 1.8rem;
-    color: #ffc31f;
+    color: #fff;
 }
-.styl:active,
-.styl:hover {
-    background-color: #eee31b;
+.menu {
+    color: #fff;
+}
+.menu:active,
+.menu:hover {
+    color: #eee31b;
 }
 .logo {
     color: #c9782c;
     font-size: 3rem;
     font-weight: 900;
     font-family: 'Dongle', sans-serif;
-    padding: 10px;
 }
 .logo:hover {
     color: #ab0d17;
@@ -39,7 +42,8 @@ body {
 
 .author {
     color:black;
-
+    font-family: 'Dongle', sans-serif;
+    font-size: 2rem;
 }
 
 .light bg {
@@ -53,12 +57,16 @@ body {
 }
 .text {
     padding-top: 90px;
+    font-family: 'Dongle', sans-serif;
+    font-size: large;
 }
 .signin {
     padding-top: 80px;
+    font-family: 'Dongle', sans-serif;
 }
 .btn-signin {
     background-color: #919999;
+    font-family: 'Dongle', sans-serif;
 }
 .btn-signin:hover {
     background-color: #666b6b;
@@ -66,9 +74,11 @@ body {
 
 .register {
     padding-top: 80px;
+    font-family: 'Dongle', sans-serif;
 }
 .btn-regist {
     background-color: #919999;
+    font-family: 'Dongle', sans-serif;
 }
 .btn-regist:hover {
     background-color: #666b6b;
@@ -76,11 +86,25 @@ body {
 
 .logout {
     padding-top: 80px;
+    font-family: 'Dongle', sans-serif;
 }
 
 .btn-out {
     background-color: #919999;
+    font-family: 'Dongle', sans-serif;
 }
 .btn-out:hover {
     background-color: #666b6b;
+}
+.comments {
+    float: left;
+    padding: 20px;
+    margin: 20px;
+    font-family: 'Dongle', sans-serif;
+}
+.comments p {
+    font-weight: bold;
+}
+.dates {
+    font-weight: lighter;
 }
