@@ -32,6 +32,10 @@ body {
 .image-container {
     position: relative;
 }
+.blog-pic {
+    position: relative;
+    display: inline-block;
+}
 .card-body {
     margin-top: 80px;
 }

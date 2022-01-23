@@ -22,7 +22,7 @@ class Storie(models.Model):
         ordering = ['posted_date']
 
     def __str__(self):
-        return self.title
+        return str(self.title)
 
     def gamers_like(self):
         return self.likes.count()

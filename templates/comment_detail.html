@@ -13,9 +13,9 @@
             <p class="comment-text">{{ post.author }} | {{ post.posted_date }}</p>
         </div>
         <div class="image-container-fluid">
-            <div class="d-none d-md-block col-sm-8">
+            <div class="d-none d-md-block col-sm-8 blog-pic">
                 {% if 'placeholder' in post.posted_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                <img src="https://res.cloudinary.com/dbyneqayv/image/upload/v1642937341/deamon_ebbp9z.jpg">
                 {% else %}
                 <img src=" {{ post.posted_image.url }}" width="100%">
                 {%endif%}
