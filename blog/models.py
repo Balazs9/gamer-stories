@@ -17,9 +17,9 @@ class Storie(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
         User, related_name='bloglike', blank=True)
-    
+
     class Meta:
-        ordering = ['posted_date']
+        ordering = ['-posted_date']
 
     def __str__(self):
         return str(self.title)
@@ -38,9 +38,7 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ['posted_date']
+        ordering = ['-posted_date']
 
     def __str__(self):
         return f"{self.name} commented the following: {self.your_comment}"
-
-

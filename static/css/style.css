@@ -5,6 +5,10 @@ body {
 }
 header {
     padding-top: 100px;
+    position: relative;
+}
+#hero {
+    width: 100%;
 }
 .card-img {
     height: auto;
@@ -117,4 +121,11 @@ p {
 }
 .dates {
     font-weight: 400;
+}
+.pic-com {
+    max-width: 200px;
+}
+#alert_msg {
+    padding-top: 500px;
+    position: absolute;
 }

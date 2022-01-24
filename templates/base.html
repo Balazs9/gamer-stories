@@ -2,17 +2,19 @@
 
 <!DOCTYPE html>
 <html class="h-100">
+    
 <head>
     <title>Gamer Stories</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
-    
+    <meta link="viewport" content="width=device-width, initial-scale=1" >
     <script src="https://cdn.jsdelivr.net/npm/@multiavatar/multiavatar/multiavatar.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
@@ -23,60 +25,64 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-<body class="d-flex flex-column h-200 main-bg">
-    {% load static %}
-    <header>
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark shadow">
-            <div class="container-fluid">
-                <a class="navbar styl" href="{% url 'home' %}"><span class="logo">Gamer Stories</span></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse menu" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link " href="{% url 'account_logout' %}">Log out</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link " href="{% url 'account_login' %}">Sign In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                    </li>
-                    {% endif %}
-                    
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-
-       
-        <div class="col-md-8 px-0">
-            <img class="img-fluid" src="{% static 'images/ps5controller.png' %}" alt="hero-image">
-            <div class="card-img-overlay text-white d-flex justifay-content-center align-items-end">
-                <h2 class="head my-4 mt-3 text-black text-center">Play, share, comment</h2>
+<body class="d-flex flex-column h-100 main-bg">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark shadow">
+        <div class="container-fluid">
+            <a class="navbar styl" href="{% url 'home' %}"><span class="logo">Gamer Stories</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse menu" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'account_logout' %}">Log out</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'account_login' %}">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                </li>
+                {% endif %}
+                
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
         </div>
-          
-    </header>
+    </nav>
+    <!---------- Alert message ---------->
+
     
+    <!---------- Main ---------->
+
     <main class="flex-{grow|shrink}-0 main-bc}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    {% for message in messages %}
+                    <div class="alert {{ message.tags }} alert-dismissible fade show" id="alert_msg" role="alert">
+                        {{ message | safe}}
+                        <button type="button" class="btn-close" data-bd-dismiss="alert" aria-label="Close"></button>
+                    </div>
+    
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
         {% block content %}
 
         {% endblock content %}
-
     </main>
-    
-    <footer class="footer mt-auto py-3 dark-bg">
+    <!---------- Footer ---------->
+    <footer class="footer-expand-lg mt-auto py-3 dark-bg">
         <p class="m-0 text-center text-black">Follow us on:
             <i class="fab fa-facebook"></i>
             <i class="fab fa-twitter-square"></i>
@@ -88,5 +94,6 @@
             Multiavatar - Multicultural Avatar Maker
             https://multiavatar.com</p>
     </footer>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
