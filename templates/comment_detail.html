@@ -39,10 +39,10 @@
                             {% csrf_token %}
                             {% if like %}
 
-                            <button type="submit" class="btn-like" name="bloglike" value="{{post.slug}}"><i class="fas fa-thumbs-up"></i></button>
+                            <button type="submit" class="btn btn-primary" name="bloglike" value="{{post.slug}}"><i class="fas fa-thumbs-up"></i></button>
 
                             {% else %}
-                            <button type="submit" class="btn-like" name="bloglike" value="{{post.slug}}"><i class="far fa-thumbs-up"></i></button>
+                            <button type="submit" class="btn btn-primary" name="bloglike" value="{{post.slug}}"><i class="far fa-thumbs-up"></i></button>
 
                             {%endif%}
 
@@ -72,7 +72,7 @@
                             {{ comment.posted_date }}
                         </span>
                     </p>
-                    {{ comment.textbox | linebreaks }}
+                    {{ comment.your_comment | linebreaks }}
                 </div>
                 {% endfor %}
             </div>
@@ -91,6 +91,8 @@
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
+                    <input type="file" class="image-url" id="comment-image" name="comment-image">
+                    <label class="image-url-label" for="comment-image"></label>
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
                 {% endif %}

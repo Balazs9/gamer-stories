@@ -7,8 +7,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.jsdelivr.net/npm/@multiavatar/multiavatar/multiavatar.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
@@ -23,51 +23,50 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
-
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark shadow">
-        <div class="container-fluid">
-            <a class="navbar styl" href="{% url 'home' %}"><span class="logo">Gamer Stories</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse menu" id="navbarTogglerDemo02">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-                  </li>
-                  {% if user.is_authenticated %}
-                  <li class="nav-item">
-                    <a class="nav-link " href="{% url 'account_logout' %}">Log out</a>
-                  </li>
-                  {% else %}
-                  <li class="nav-item">
-                    <a class="nav-link " href="{% url 'account_login' %}">Sign In</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                  </li>
-                  {% endif %}
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-    <header class="masthead">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-10 mx-auto">
-                    <div class="bg-img" src="../media/deamon.png" height="200px">
-                            <h2 class="head my-4 mt-3 text-black">Play, share, comment</h2>
-                            <p class="text-light">Play, share, comment</p>
-                    </div>
+<body class="d-flex flex-column h-200 main-bg">
+    {% load static %}
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark shadow">
+            <div class="container-fluid">
+                <a class="navbar styl" href="{% url 'home' %}"><span class="logo">Gamer Stories</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse menu" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link " href="{% url 'account_logout' %}">Log out</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link " href="{% url 'account_login' %}">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    {% endif %}
+                    
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                 </div>
             </div>
+        </nav>
+
+       
+        <div class="col-md-8 px-0">
+            <img class="img-fluid" src="{% static 'images/ps5controller.png' %}" alt="hero-image">
+            <div class="card-img-overlay text-white d-flex justifay-content-center align-items-end">
+                <h2 class="head my-4 mt-3 text-black text-center">Play, share, comment</h2>
+            </div>
         </div>
+          
     </header>
     
     <main class="flex-{grow|shrink}-0 main-bc}">

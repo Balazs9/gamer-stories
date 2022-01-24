@@ -33,7 +33,7 @@ class Comment(models.Model):
                              related_name="comments")
     name = models.CharField(max_length=50)
     email = models.EmailField()
-    textbox = models.TextField()
+    your_comment = models.TextField()
     posted_date = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
@@ -41,6 +41,6 @@ class Comment(models.Model):
         ordering = ['posted_date']
 
     def __str__(self):
-        return f"{self.name} commented the following: {self.textbox}"
+        return f"{self.name} commented the following: {self.your_comment}"
 
 
