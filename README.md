@@ -45,7 +45,17 @@ V. Surface
 
 ### 1. First time visitor:
 
+- A gamer blog website what is easy to use
+
+- A gamer blog website where the user can share their thoughts
+
+- A gamer blog website where the user can connect with other pasionet gamers
+
 ### 2. Returning visitor:
+
+- A gamer blog website where they can come back to share their stories with in a daily bases
+
+- A gamer blog website where they have fun
 
 ## Creator Goals:
 
@@ -55,7 +65,57 @@ V. Surface
 
 - to build a community and share passion about games
 
+- connect people
+
 ## UX
+
+I. Strategy
+
+#### The focus of the blog:
+
+Target audience:
+
+- anyone who love video games
+
+- new and returning bloggers
+
+Demographics:
+
+- age is not relevant
+
+Psyhographics:
+
+- playing games is a lifestyle
+
+- people who want to join a gamer community
+
+- play together
+
+- talk about games
+
+II. Scope
+
+User requirements:
+
+- Sign up or log in to the site by providing username and password
+
+- post a comment
+
+- edit or delete a comment
+
+- like or dislike a comment
+
+Admin requirements:
+
+- has all the functionality as a user
+
+- approve comments
+
+- delete comments
+
+III. Structures
+
+
 
 IV. Skelton 
 

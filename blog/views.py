@@ -57,6 +57,7 @@ class StorieDetail(View):
             },
         )
 
+
 class StorieLike(View):
 
     def post(self, request, slug):
