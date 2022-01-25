@@ -48,6 +48,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'storie_create' %}">New Post</a>
+                </li>
                 {% endif %}
                 
                 </ul>
@@ -67,7 +70,7 @@
                 <div class="alert {{ message.tags }} alert-dismissible fade show" id="alert_msg" role="alert">
                     {{ message | safe}}
                     <button type="button" class="btn-close" data-bd-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        
                     </button>
                 </div>
 
@@ -78,7 +81,7 @@
     <!---------- Main ---------->
 
 
-    <main class="flex-{grow|shrink}-0 main-bc}">
+    <main class="flex-{grow|shrink}-0 main-bg}">
         
         </div>
         {% block content %}

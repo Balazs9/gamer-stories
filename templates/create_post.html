@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load crispy_from_tags %}
+{% load static }
+
+{% if user.is_authenticated%}
+<form>
+    {% csrf token %}
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" placeholder="titlename">
+    </div>
+    <div class="form-group">
+      <label for="console">Choose your console</label>
+      <select class="form-control" id="console">
+        <option>Playstation 5</option>
+        <option>Playstation 4</option>
+        <option>Xbox Series X/S</option>
+        <option>Nintendo Switch</option>
+        <option>Multiple</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="write">Share your story</label>
+      <textarea class="form-control" id="write" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  {% endif %}
+
+{% endblock content %}

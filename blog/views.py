@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.views.generic.edit import CreateView
 from django.http import HttpResponseRedirect
 from .models import Storie
 from .forms import CommentForm
@@ -69,3 +70,14 @@ class StorieLike(View):
             post.likes.add(request.user)
         
         return HttpResponseRedirect(reverse('storie_detail', args=[slug]))
+
+
+class StorieCreate(CreateView):
+    model = Storie
+
+    def get(self, request, slug):
+        queryset = Storie.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        comments = post.comments.filter(approved=True).order_by('-posted_date')
+
+        return reverse('home')

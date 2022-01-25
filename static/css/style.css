@@ -127,7 +127,7 @@ p {
     max-width: 200px;
 }
 #alert_msg {
-    padding-top: 500px;
+    margin-top: 500px;
     position: fixed;
     z-index: 1;
 }
