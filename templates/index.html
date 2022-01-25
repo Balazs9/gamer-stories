@@ -17,61 +17,66 @@
         
     </div>
 </header>
+<br>
 <section>
-    <div class="container-fluid">
-        <section class="container text-center my-5">
-            
-            <div class="container-fluid">
-            {% for post in storie_list %}
-                <div class="row">
-                    <div class="col-sm">
-                        <div class="card-group col-4 xs-sm col-8 md-xl">
-                            <div class="card col-sm-6">
-                                <div class="card">
-                                    <div class="bg-image">
-                                        <h3 class="card-title"> {{ post.title }} </h3>
-                                        {% if "placeholder" in post.posted_image.url %}
-                                        <img class="card-img-top" 
-                                        src="">
-                                        {% else %}
-                                        <img class="card-img-top" src="{{ post.posted_image.url }}">
-                                        {% endif %}
-                                        <div class="image-pop">
-                                        <p class="author"><i class="fas fa-comment"></i> {{ post.author }}</p>                    
-                                        </div>
-                                        <p class="card-text"> {{ post.excerpt }} </p>
-                                        <a href="{% url 'storie_detail' post.slug %}" class="btn btn-primary">Comment</a>
-                                        <p class="card-text text-muted h5"><i class="fas fa-comments"></i> {{ post.posted_date }} <i class="fas fa-thumbs-up"></i> {{ post.gamers_like }}</p>
-                                    </div>
-                                </div>    
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    
         
-        {{ contact.full_name | upper }}<br>
 
-        {% endfor %}
-
-        <!---------- Page pagination ---------->
-        {% if is_paginated%}
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">
-                    &laquo; PREV</a></li>
-                {% endif %}
-                {% if page_obj.has_next %}
-                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">
-                    NEXT &raquo;</a></li>
-                {% endif %}
+    <div class="container">
+    
+        
+            
+        <div class="row">
+            {% for post in storie_list %}
+            <div class="col-sm-4">
+                <div class="card">
+                    
+                        <div class="bg-image">
+                            <h3 class="card-title"> {{ post.title }} </h3>
+                            {% if "placeholder" in post.posted_image.url %}
+                            <img class="d-block w-100" 
+                            src="">
+                            {% else %}
+                            <img class="d-block w-100" src="{{ post.posted_image.url }}">
+                            {% endif %}
+                            <div class="image-pop">
+                            <p class="author"><i class="fas fa-comment"></i> {{ post.author }}</p>                    
+                            </div>
+                            <p class="card-text"> {{ post.excerpt }} </p>
+                            <a href="{% url 'storie_detail' post.slug %}" class="btn btn-primary">Comment</a>
+                            <p class="card-text text-muted h5"><i class="fas fa-comments"></i> {{ post.posted_date }} <i class="fas fa-thumbs-up"></i> {{ post.gamers_like }}</p>
+                        </div>
+                        
+                </div>
                 
-            </ul>
-        </nav>
-        {% endif %}
+            </div>
+            {% endfor %}
+        </div>
         
     </div>
+    
+    
+    {{ contact.full_name | upper }}<br>
+
+    
+
+    <!---------- Page pagination ---------->
+    {% if is_paginated%}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">
+                &laquo; PREV</a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">
+                NEXT &raquo;</a></li>
+            {% endif %}
+            
+        </ul>
+    </nav>
+    {% endif %}
+    
+    
 </section>
 {% endblock content %}

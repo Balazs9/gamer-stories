@@ -68,10 +68,11 @@ p {
     position: relative;
     display: inline-block;
 }
-.card-body {
-    margin-top: 80px;
+.card {
+    padding: auto;
 }
-.card-body-box:hover {
+.card:active
+.card:hover {
     border-color:rgb(82, 68, 68);
     box-shadow: 3px 3px 3px 3px rgba(82, 68, 68);
 }
@@ -127,5 +128,6 @@ p {
 }
 #alert_msg {
     padding-top: 500px;
-    position: absolute;
+    position: fixed;
+    z-index: 1;
 }
