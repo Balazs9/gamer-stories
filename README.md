@@ -165,6 +165,8 @@ Solved issues
 
 Tutor service was helping to solve the problem, which was coming from gitpod servers. Continuisly recieved error messages when i run the server, error messages of vs code and python is not installed.
 
+![crash](media/runservererror.png)
+
 - pagination issue
 
 Empty page error
