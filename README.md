@@ -115,6 +115,12 @@ Admin requirements:
 
 III. Structures
 
+![diagram](media/gamerstories.png)
+
+#### Organization of structure:
+
+Home page, new comment page, account page. 
+
 
 
 IV. Skelton 
@@ -123,10 +129,72 @@ Balsamiq wireframe for windows and mobile screen
 
 ![gamer-stories](media/gamerstories-wireframe.png)
 
+### 3. Features
 
-### 5. Technologies
+Existing features:
 
-- Django frame
+On all pages :
+
+- navbar
+
+- sign in and out options
+
+- On Comment page:
+
+- logged in users can comment and like 
+
+- from main page users can register, log in
+
+#### Features to implement:
+
+- create a post as a user:
+
+- modify and delete a post as a user
+
+- avatars can be selected when user is making registration
+
+### Issues
+
+Solved issues
+
+- pagination issue
+
+Empty page error
+
+I run into that bug after implementing the createview feature in my views. I got the error message after loading the page in, the error came from the pagination, in models.py where the pagination number was given, that was causing the problem, it was to small, changed that for bigger number and than the bug was solved.
+
+![pagination_error](media/errormsgpag.png)
+
+Known issues and bugs to be solved
+
+- page not found
+
+After implementing the createview function, so users could post too, this error came up, after as a user logged in and tried to create a new post. Still working on this bug to solve it, tried to find it on [stackoverflow](https://stackoverflow.com/questions/60590738/the-current-path-post-didnt-match-any-of-these)
+but unfortunately i could not solve this bug yet. 
+
+![page_not_found](media/errormsg.png)
+
+- alert message
+
+Alert messages for notifications to the users, the message itself is showing and fading just as planned, but the box style is not displaying
+
+![alert_msg](media/alertmsg.png)
+
+### Technologies
+
+#### Languages used:
+
+- HTML
+
+- CSS
+
+- JavaScript
+
+- Python
+
+#### Frameworks and libraries
+
+- Django framework 
 
 - Bootstrap 4
 
@@ -152,12 +220,37 @@ to store the project code
 
 - Heroku
 
+heroku was used to deploy the website
+
 - Wireframe
 
-Balsamiq wireframe
+Balsamiq wireframe to create the wireframe
 
 - Coolors
 
 Find colors from a wide selection
 
 [Coolors](https://coolors.co/9f9aa4-e7cfcd-536565-b5c9c3-cab1bd)
+
+- DBD diagram
+
+dbd diagram was used to create the diagram
+
+### 6. Testing
+
+- HTML testing
+
+[html_validator](https://validator.w3.org/#validate_by_input)
+
+- CSS validator
+
+[css_validator](https://jigsaw.w3.org/css-validator/)
+
+- PEP8 
+
+[pep8](http://pep8online.com/)
+
+#### Manual testing:
+
+
+

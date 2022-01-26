@@ -1,5 +1,4 @@
 from . import views
-from .views import StorieCreate
 from django.urls import path
 
 
