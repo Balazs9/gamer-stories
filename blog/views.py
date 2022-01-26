@@ -10,7 +10,7 @@ class StorieList(generic.ListView):
     model = Storie
     queryset = Storie.objects.filter(status=1).order_by('-posted_date')
     template_name = 'index.html'
-    paginate_by = 4
+    paginate_by = 6
 
 
 class StorieDetail(View):
@@ -74,10 +74,4 @@ class StorieLike(View):
 
 class StorieCreate(CreateView):
     model = Storie
-
-    def get(self, request, slug):
-        queryset = Storie.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('-posted_date')
-
-        return reverse('home')
+    fields = ['title', 'author']
