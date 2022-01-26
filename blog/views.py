@@ -19,13 +19,13 @@ class StorieDetail(View):
         queryset = Storie.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('-posted_date')
-        
+
         return render(
             request,
             "comment_detail.html",
             {
-                "post": post, 
-                "comments": comments, 
+                "post": post,
+                "comments": comments,
                 "commented": False,
                 "comment_form": CommentForm()
             },
@@ -35,7 +35,7 @@ class StorieDetail(View):
         queryset = Storie.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('-posted_date')
-        
+
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
@@ -51,7 +51,7 @@ class StorieDetail(View):
             request,
             "comment_detail.html",
             {
-                "post": post, 
+                "post": post,
                 "comments": comments,
                 "commented": True,
                 "comment_form": comment_form
@@ -68,7 +68,7 @@ class StorieLike(View):
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user)
-        
+
         return HttpResponseRedirect(reverse('storie_detail', args=[slug]))
 
 

@@ -153,9 +153,17 @@ On all pages :
 
 - avatars can be selected when user is making registration
 
+- user can upload pictures
+
+- search functionate
+
 ### Issues
 
 Solved issues
+
+- gitpod crash on my project
+
+Tutor service was helping to solve the problem, which was coming from gitpod servers. Continuisly recieved error messages when i run the server, error messages of vs code and python is not installed.
 
 - pagination issue
 
@@ -252,5 +260,55 @@ dbd diagram was used to create the diagram
 
 #### Manual testing:
 
+Hero Image 
+
+![hero](media/hero_image.png)
+
+Opening part with hero image, navbar with home, new post and log in/out options
+Search button
+
+Blog area
+
+![blogs](media/blog_area.png)
+
+This is the blog area where the new posts will come up, ordered by time,date. Lateset come first. Pioctures are the same right now, because the uploding is still not implemented, it is mentioned in the feature implementing section.
+
+Comment area 
+
+![comment](media/comment_page.png)
+
+Here one of the comment is opened, where the likes the posted date and the user who posted visible, under there is a comment section where other people can post something to this post
+
+Sign in page
+
+![signin](media/sign_in.png)
+
+Sign in page, the log out and the register is also available.
+
+### Deployment
+
+The Blog project was developed using gitpod, committed to Git and stored at GitHub.
+
+Deployed on heroku because of the python application.
+
+### Credits
+
+1. The CodeInstitue 'I think Therefore I Blog' video was used as the main reference point how to set up a blog application.
+
+2. Pagination code was used from bootstrap
+
+3. Usplash for the images
+
+[usplash](https://unsplash.com/)
+
+4. Stackoverflow 
+
+[stackoverflow](https://stackoverflow.com/)
+
+- to look solutions and advices on errors and bugs
+
+5. My mentor for the feedbacks on the project 
+
+6. Code Institute tutor support for their help and support with the crash on my project
 
 

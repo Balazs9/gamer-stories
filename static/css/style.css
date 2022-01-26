@@ -1,7 +1,6 @@
 body {
     font-size: x-large;
     background: url(/static/images/ps4pic.jpg);
-    background: cover;
 }
 header {
     padding-top: 100px;
@@ -17,7 +16,6 @@ header {
 }
 .bg-img {
     padding-top: 100px;
-    background: cover;
 }
 h2, h3 {
     font-weight: 800;
@@ -30,6 +28,14 @@ h5 {
 }
 p {
     font-weight: 500;
+}
+#post-row {
+    margin: 20px;
+    padding: 20px;
+}
+#post-box {
+    margin: 5px;
+    padding: 5px;
 }
 .btn {
     background-color: #919999;
@@ -67,18 +73,6 @@ p {
 .blog-pic {
     position: relative;
     display: inline-block;
-}
-.card {
-    padding: auto;
-}
-.card:active
-.card:hover {
-    border-color:rgb(82, 68, 68);
-    box-shadow: 3px 3px 3px 3px rgba(82, 68, 68);
-}
-.pop {
-    position: absolute;
-    background-color: rgba(170, 135, 135, 0,6);
 }
 
 .author {
@@ -130,4 +124,7 @@ p {
     margin-top: 500px;
     position: fixed;
     z-index: 1;
+}
+#commenthead {
+    padding-top: 20px;
 }

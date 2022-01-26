@@ -61,7 +61,7 @@
             </div>
         </div>
     </nav>
-    <!---------- Alert message ---------->
+    <!-- Alert message -->
 
     <div class="container">
         <div class="row">
@@ -69,16 +69,13 @@
                 {% for message in messages %}
                 <div class="alert {{ message.tags }} alert-dismissible fade show" id="alert_msg" role="alert">
                     {{ message | safe}}
-                    <button type="button" class="btn-close" data-bd-dismiss="alert" aria-label="Close">
-                        
-                    </button>
+                    <button type="button" class="btn-close" data-bd-dismiss="alert" aria-label="Close"></button>
                 </div>
-
                 {% endfor %}
             </div>
         </div>
     </div>
-    <!---------- Main ---------->
+    <!-- Main -->
 
 
     <main class="flex-{grow|shrink}-0 main-bg}">
@@ -88,7 +85,7 @@
 
         {% endblock content %}
     </main>
-    <!---------- Footer ---------->
+    <!-- Footer -->
     <footer class="footer-expand-lg mt-auto py-3 dark-bg">
         <p class="m-0 text-center text-black">Follow us on:
             <i class="fab fa-facebook"></i>
