@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.views.generic.edit import CreateView
 from django.http import HttpResponseRedirect
-from .models import Storie
+from .models import Storie, Comment
 from .forms import CommentForm
 
 
@@ -70,8 +70,3 @@ class StorieLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('storie_detail', args=[slug]))
-
-
-class StorieCreate(CreateView):
-    model = Storie
-    fields = ['title', 'author']

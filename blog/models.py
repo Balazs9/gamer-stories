@@ -11,7 +11,6 @@ class Storie(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="posts")
     posted_image = CloudinaryField('image', default='placeholder')
-    excerpt = models.TextField(blank=True)
     posted_date = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
