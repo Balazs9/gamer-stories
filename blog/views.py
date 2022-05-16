@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.views.generic.edit import CreateView
 from django.http import HttpResponseRedirect
 from .models import Storie, Comment
+from story.models import PostStorie
 from .forms import CommentForm
+from django.urls import reverse_lazy
 
 
 class StorieList(generic.ListView):
@@ -11,6 +12,16 @@ class StorieList(generic.ListView):
     queryset = Storie.objects.filter(status=1).order_by('-posted_date')
     template_name = 'index.html'
     paginate_by = 6
+    context_object_name = 'post_storie_list'
+
+    def get_context_data(self, **kwargs):
+        context = super(StorieList, self).get_context_data(**kwargs)
+        context['storie'] = Storie.objects.filter(status=1).order_by('-posted_date')
+        context['poststorie'] = PostStorie.objects.filter(status=1).order_by('-posted_date')
+        return context
+
+    # def get_queryset(self):
+    #     return PostStorie.objects.order_by('-posted_date')
 
 
 class StorieDetail(View):
