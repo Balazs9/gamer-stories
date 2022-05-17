@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.views.generic.edit import UpdateView, DeleteView
 from .models import Storie, Comment
 from story.models import PostStorie
 from .forms import CommentForm
@@ -81,3 +82,24 @@ class StorieLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('storie_detail', args=[slug]))
+
+
+class StorieUpdate(UpdateView):
+    """
+    Update the created post
+    """
+    model = Storie
+    fields = ['title', 'author', 'content', 'posted_image']
+    template_name = 'update_post.html'
+    success_url = reverse_lazy('home')
+
+
+class StorieDelete(DeleteView):
+    """
+    Delete the post
+    """
+    model = Storie
+    fields = ['title', 'author', 'content', 'posted_image']
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('home')
+

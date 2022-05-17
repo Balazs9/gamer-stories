@@ -17,5 +17,8 @@ class PostStorie(models.Model):
     class Meta:
         ordering = ['-posted_date']
 
-        def __str__(self):
-            return self.title
+    def __str__(self):
+        return self.title
+
+    def post_like(self):
+        return self.likes.count()

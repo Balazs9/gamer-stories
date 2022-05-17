@@ -12,8 +12,11 @@ from django.contrib import messages
 
 
 class StorieCreate(CreateView):
+    """
+    Create a post as a user
+    """
     model = PostStorie
-    paginate_by = 6
     template_name = 'create_post.html'
     fields = ['title', 'author', 'content', 'posted_image']
     success_url = reverse_lazy('home')
+
