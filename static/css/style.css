@@ -1,6 +1,7 @@
 body {
     font-size: x-large;
-    
+    background-image: url('../static/images/ps4pic.jpg');
+    background-color: #eee31b;
 }
 header {
     padding-top: 100px;
