@@ -15,7 +15,7 @@ class StorieList(generic.ListView):
     model = Storie
     queryset = Storie.objects.filter(status=1).order_by('-posted_date')
     template_name = 'index.html'
-    paginate_by = 6
+    paginate_by = 8
     context_object_name = 'post_storie_list'
 
     def get_context_data(self, **kwargs):
@@ -29,9 +29,9 @@ class StorieDetail(View):
     """
     Display the individual post page
     """
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, pk, *args, **kwargs):
         queryset = Storie.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
+        post = get_object_or_404(queryset, pk=pk)
         comments = post.comments.filter(approved=True).order_by('-posted_date')
 
         return render(
@@ -45,9 +45,9 @@ class StorieDetail(View):
             },
         )
 
-    def post(self, request, slug, *args, **kwargs):
+    def post(self, request, pk, *args, **kwargs):
         queryset = Storie.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
+        post = get_object_or_404(queryset, pk=pk)
         comments = post.comments.filter(approved=True).order_by('-posted_date')
 
         comment_form = CommentForm(data=request.POST)
@@ -77,15 +77,15 @@ class StorieLike(View):
     """
     User can like or dislike a post
     """
-    def post(self, request, slug):
-        post = get_object_or_404(Storie, slug=slug)
+    def post(self, request, pk):
+        post = get_object_or_404(Storie, pk=pk)
 
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user)
 
-        return HttpResponseRedirect(reverse('storie_detail', args=[slug]))
+        return HttpResponseRedirect(reverse('storie_detail', args=[pk]))
 
 
 class StorieUpdate(UpdateView):

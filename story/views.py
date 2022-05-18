@@ -33,10 +33,11 @@ class PostStorieDetail(DetailView):
     Displaying created stories from the user
     """
     model = PostStorie
+    fields = ['title', 'author', 'content', 'posted_image', 'status']
     template_name = 'post_detail.html'
 
 
-class StorieUpdate(UpdateView):
+class UserStorieUpdate(UpdateView):
     """
     Update the created post, when the user logged in
     """
@@ -46,7 +47,7 @@ class StorieUpdate(UpdateView):
     success_url = reverse_lazy('home')
 
 
-class StorieDelete(DeleteView):
+class UserStorieDelete(DeleteView):
     """
     Delete the post, when the user logged in
     """
