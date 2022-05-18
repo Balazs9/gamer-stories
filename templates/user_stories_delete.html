@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+<br>
+<div>
+    {% if user.is_authenticated %}
+    <br>
+    <form method="POST">
+        <br>
+        {% csrf_token %}
+        <p>Are you sure you want to delete your Story?</p>
+        <input type="submit" class="btn btn-primary" value="Delete">
+    </form>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -26,7 +26,7 @@
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark shadow">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow">
         <div class="container-fluid">
             <a class="navbar styl" href="{% url 'home' %}"><span class="logo">Gamer Stories</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +36,9 @@
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'user_stories' %}">User Stories</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="{% url 'storie_create' %}">New Post</a>
@@ -75,9 +78,9 @@
             </div>
         </div>
     </div>
+
+
     <!-- Main -->
-
-
     <main class="flex-{grow|shrink}-0 main-bg}">
         
         </div>
@@ -85,8 +88,9 @@
 
         {% endblock content %}
     </main>
+
     <!-- Footer -->
-    <footer class="footer-expand-lg mt-auto py-3 dark-bg">
+    <footer class="footer-expand-lg mt-auto py-3 bg-light">
         <p class="m-0 text-center text-black">Follow us on:
             <i class="fab fa-facebook"></i>
             <i class="fab fa-twitter-square"></i>

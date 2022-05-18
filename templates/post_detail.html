@@ -1,0 +1,108 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 text">
+            <!-- Comment title comes here-->
+            <h1 class="comment-title" id="commenthead">{{ post.title }}</h1>
+            <!-- Post author comes first than the date when posted -->
+            <p class="comment-text">{{ post.author }} | {{ post.posted_date }}</p>
+        </div>
+        <div class="container pic-com">
+            <div class="d-md-block col-md-6 col-sm-8 blog-pic">
+                {% if 'placeholder' in post.posted_image.url %}
+                <img src="">
+                {% else %}
+                <img src=" {{ post.posted_image.url }}" width="100%">
+                {%endif%}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4 mt-3 left top">
+            <!-- Comment for the posts goes here -->
+            <div class="card-body">
+                <p class="card-text">{{ post.content | safe }}</p>
+                <div class="row">
+                    <div class="col-1">
+                        {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url 'storie_like' post.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if like %}
+
+                            <button type="submit" class="btn btn-primary" name="bloglike" value="{{post.slug}}"><i class="fas fa-thumbs-up"></i></button>
+
+                            {% else %}
+                            <button type="submit" class="btn btn-primary" name="bloglike" value="{{post.slug}}"><i class="far fa-thumbs-up"></i></button>
+
+                            {%endif%}
+
+                        </form>
+
+                        {% else %}
+                        
+                        <span class="text-secondary"><i class="far fa-thumbs-up"></i></span>
+
+                        {%endif%}
+                        <span class="text-secondary">{{ post.gamers_like }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8 card mb-4 mt-3" id="commenttext">
+            <h3>Comments:</h3>
+            <div class="card-body">
+                <!---------- for loop to iterate throuh in the comments ---------->
+                {% for comment in comments %}
+                <div class="comments">
+                    <p class="name">{{ comment.name }}
+                        <span class="dates">
+                            {{ comment.posted_date }}
+                        </span>
+                    </p>
+                    {{ comment.your_comment | linebreaks }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-8 card mb-4 mt-3">
+            <div class="card-body">
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Comment waiting for approval
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <input type="file" class="image-url" id="comment-image" name="comment-image">
+                    <label class="image-url-label" for="comment-image"></label>
+                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                </form>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock content %}

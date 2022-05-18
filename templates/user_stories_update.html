@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load crispy_forms_tags%}
+
+{% load static %}
+
+<br>
+<div>
+    {% if user.is_authenticated %}
+    <br>
+    <form method="POST">
+        <br>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Update">
+    </form>
+    {% endif %}
+</div>
+
+{% endblock %}

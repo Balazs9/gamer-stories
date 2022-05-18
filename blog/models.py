@@ -6,6 +6,9 @@ STATUS = ((0, "Drafts"), (1, "Published"))
 
 
 class Storie(models.Model):
+    """
+    the Storie model what is been used when creating post as admin
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(

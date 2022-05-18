@@ -9,6 +9,9 @@ from django.urls import reverse_lazy
 
 
 class StorieList(generic.ListView):
+    """
+    Listing the post what has been created by site admin
+    """
     model = Storie
     queryset = Storie.objects.filter(status=1).order_by('-posted_date')
     template_name = 'index.html'
@@ -16,17 +19,16 @@ class StorieList(generic.ListView):
     context_object_name = 'post_storie_list'
 
     def get_context_data(self, **kwargs):
-        context = super(StorieList, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['storie'] = Storie.objects.filter(status=1).order_by('-posted_date')
         context['poststorie'] = PostStorie.objects.filter(status=1).order_by('-posted_date')
         return context
 
-    # def get_queryset(self):
-    #     return PostStorie.objects.order_by('-posted_date')
-
 
 class StorieDetail(View):
-
+    """
+    Display the individual post page
+    """
     def get(self, request, slug, *args, **kwargs):
         queryset = Storie.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -72,7 +74,9 @@ class StorieDetail(View):
 
 
 class StorieLike(View):
-
+    """
+    User can like or dislike a post
+    """
     def post(self, request, slug):
         post = get_object_or_404(Storie, slug=slug)
 
@@ -86,7 +90,7 @@ class StorieLike(View):
 
 class StorieUpdate(UpdateView):
     """
-    Update the created post
+    Update the created post, only admin
     """
     model = Storie
     fields = ['title', 'author', 'content', 'posted_image']
@@ -96,7 +100,7 @@ class StorieUpdate(UpdateView):
 
 class StorieDelete(DeleteView):
     """
-    Delete the post
+    Delete the post, only admin
     """
     model = Storie
     fields = ['title', 'author', 'content', 'posted_image']
