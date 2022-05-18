@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.list import MultipleObjectMixin
 from .models import Storie, Comment
 from story.models import PostStorie
 from .forms import CommentForm
@@ -15,7 +16,7 @@ class StorieList(generic.ListView):
     model = Storie
     queryset = Storie.objects.filter(status=1).order_by('-posted_date')
     template_name = 'index.html'
-    paginate_by = 8
+    paginate_by = 6
     context_object_name = 'post_storie_list'
 
     def get_context_data(self, **kwargs):
