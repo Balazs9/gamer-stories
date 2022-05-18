@@ -11,13 +11,6 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 
 
-class UserStory(generic.ListView):
-    model = PostStorie
-    queryset = PostStorie.objects.filter(status=1).order_by('-posted_date')
-    template_name = 'user_stories.html'
-    paginate_by = 6
-
-
 class StorieCreate(CreateView):
     """
     Create a post as a user
@@ -25,7 +18,7 @@ class StorieCreate(CreateView):
     model = PostStorie
     template_name = 'create_post.html'
     fields = ['title', 'author', 'content', 'posted_image', 'status']
-    success_url = reverse_lazy('user_stories')
+    success_url = reverse_lazy('home')
 
 
 class PostStorieDetail(DetailView):
