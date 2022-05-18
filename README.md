@@ -190,6 +190,12 @@ Alert messages for notifications to the users, the message itself is showing and
 
 ![alert_msg](media/alertmsg.png)
 
+- no reverse match
+
+whne created the createview, after adding the urls and template, my plan was to import the new poststorie model to the blog view and render everything on the main page, but i got this error message. After trying many options, what i could read and find on[djangoproject](https://docs.djangoproject.com/en/4.0/topics/class-based-views/generic-display/) and contacted tutor service to try to find where the problem is.
+
+![noreverse](media/noreverse.png)
+
 ### Technologies
 
 #### Languages used:
@@ -287,11 +293,56 @@ Sign in page
 
 Sign in page, the log out and the register is also available.
 
+New looks of the page
+
+![main](media/update_delete.png)
+
+Added update and delete options
+
+Create a new post as a user
+
+![create](media/create.png)
+
+New post available from the navbar, registered user can create a post, where all other users can comment
+
+Update a post
+
+![update](media/update.png)
+
+Update page, where user can update the post
+
+Delete a post
+
+![delete](media/delete.png)
+
+Delete page, where user can decide to delete the post
+
 ### Deployment
 
 The Blog project was developed using gitpod, committed to Git and stored at GitHub.
 
 Deployed on heroku because of the python application.
+
+The steps of the deployment:
+
+- first created an app on Heroku: select new, choose a name and create new app
+
+- in heroku settings => revael config vars=> : added 
+DATABASE_URL, SECRET_KEY, CLOUDINARY_URL
+
+- click on deploy
+
+- next step is to click on connect on the selected repository from github
+
+- click deploy branch, and enable automatic deployment
+
+- in gitpod created env.py, where added the following variables:
+
+1. DATABASE_URL
+2. SECRET_KEY
+3. CLOUDINARY_URL
+
+- created requirements.txt
 
 ### Credits
 

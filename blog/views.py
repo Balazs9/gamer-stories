@@ -28,7 +28,7 @@ class StorieList(generic.ListView):
 
 class StorieDetail(View):
     """
-    Display the individual post page
+    Display the individual post page with comments
     """
     def get(self, request, pk, *args, **kwargs):
         queryset = Storie.objects.filter(status=1)

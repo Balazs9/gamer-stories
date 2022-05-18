@@ -4,7 +4,6 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from blog.models import Storie
 from .models import PostStorie
 from .forms import StorieForm
 from django.urls import reverse_lazy
@@ -26,8 +25,51 @@ class PostStorieDetail(DetailView):
     Displaying created stories from the user
     """
     model = PostStorie
-    fields = ['title', 'author', 'content', 'posted_image', 'status']
+    queryset = PostStorie.objects.filter(status=1).order_by('-posted_date')
     template_name = 'post_detail.html'
+
+    def get_comment(self, request, pk, *args, **kwargs):
+        queryset = PostStorie.objects.filter(status=1)
+        post = get_object_or_404(queryset, pk=pk)
+        usercomments = post.usercomments.filter(approved=True).order_by('-posted_date')
+
+        return render(
+            request,
+            'post_detail.html',
+            {
+                'post': post,
+                'usercomments': usercomments,
+                'commented': False,
+                'comment_form': StorieForm() 
+            },
+        )
+
+    def post(self, request, pk, *args, **kwargs):
+        queryset = PostStorie.objects.filter(status=1)
+        post = get_object_or_404(queryset, pk=pk)
+        usercomments = post.usercomments.filter(approved=True).order_by('-posted_date')
+
+        comment_form = StorieForm(data=request.POST)
+
+        if comment_form.is_valid():
+            comment_form.instance.email = request.user.email
+            comment_form.instance.name = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.save()
+        else:
+            comment_form = StorieForm()
+
+        return render(
+            request,
+            'post_detail.html',
+            {
+                'post': post,
+                'usercomments': usercomments,
+                'commented': True,
+                'comment_form': comment_form
+            },
+        )
 
 
 class UserStorieUpdate(UpdateView):

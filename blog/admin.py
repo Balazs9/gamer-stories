@@ -5,6 +5,9 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Storie)
 class PostAdmin(SummernoteModelAdmin):
+    """
+    register the storie model
+    """
     list_display = ('title', 'slug', 'status', 'posted_date')
     search = ('title', 'content')
     list_filter = ('status', 'posted_date')
@@ -14,6 +17,9 @@ class PostAdmin(SummernoteModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
+    """
+    register the comment model
+    """
     list_display = ('name', 'your_comment', 'post', 'posted_date', 'approved')
     list_filter = ('posted_date', 'approved')
     search = ('name', 'email', 'your_comment')

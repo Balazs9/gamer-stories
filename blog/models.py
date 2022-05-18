@@ -31,6 +31,9 @@ class Storie(models.Model):
 
 
 class Comment(models.Model):
+    """
+    the comment model what is been used when giving comments as admin
+    """
     post = models.ForeignKey(Storie, on_delete=models.CASCADE,
                              related_name="comments")
     name = models.CharField(max_length=50)

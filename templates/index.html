@@ -30,7 +30,7 @@
                 <div class="card" id="post-box">
                     <div class="bg-image">
                         <h3 class="card-title"> {{ post.title }} </h3>
-                        {% if "placeholder" in post.posted_image.url %}
+                        {% if "placeh" in post.posted_image.url %}
                         <img class="d-block w-100" 
                         src="{% static 'images/ps5controller.png' %">
                         {% else %}
@@ -52,16 +52,16 @@
                     <div class="card" id="post-box">
                         <div class="bg-image">
                             <h3 class="card-title"> {{ post.title }} </h3>
-                            {% if "placeholder" in post.posted_image.url %}
+                            {% if "placeh" in post.posted_image.url %}
                             <img class="d-block w-100" 
                             src="{% static 'images/ps5controller.png' %}">
                             {% else %}
-                            <img class="d-block w-100" src="{{ post.posted_image.url }}" alt="picture">
+                            <img class="d-block w-100" src="{{ poststorie.posted_image.url }}" alt="picture">
                             {% endif %}
                             <p class="author"><i class="fas fa-comment"></i> {{ post.author }}</p>                    
                             <p class="card-text"> {{ post.excerpt }} </p>
-                            
-                            <p class="card-text text-muted h5"><i class="fas fa-comments"></i> {{ post.posted_date }} <i class="fas fa-thumbs-up"></i> {{ post.gamers_like }}</p>
+                            <a href="{% url 'poststorie_detail' pk=post.id %}" class="btn btn-primary">Comment</a>
+                            <p class="card-text text-muted h5"><i class="fas fa-comments"></i> {{ post.posted_date }} <i class="fas fa-thumbs-up"></i> {{ post.post_like }}</p>
                             <a href="{% url 'user_storie_update' pk=post.id %}" class="btn btn-primary">Update</a>
                             <a href="{% url 'user_storie_delete' pk=post.id %}" class="btn btn-primary">Delete</a>
                         </div>
