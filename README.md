@@ -71,6 +71,68 @@ V. Surface
 
 I. Strategy
 
+User stories:
+
+- Site browser
+
+As a site user I can view the feeds, news and comment on what interest me
+
+- Open
+
+As a site user I can choose a post than i can read the comments and the stories
+
+- Check the likes
+
+As a site admin/user I can view the likes on the posts, than i can see what stories are popular
+
+- Read comments
+
+As a site admin/user I can read the comments under the post
+
+- Register
+
+As a site user I can register an account so I can like or comments or create posts
+
+- Comments
+
+As a site user I can post my comments under other stories
+
+- Like
+
+As a site user I can like or dislike a post
+
+- Manage Post
+
+As a site admin I can create, read, modify or delete a post so that I can manage my stories
+
+- Approve comments
+
+As a site admin I can approve or disapprove a comments so I can control the feeds, stories
+
+- Created a DBD
+
+- Create a wireframe
+
+- Pagination (this option was replaced with a 'back to top button')
+
+As a site user I can view a paginated list of posts
+
+- Alert message
+
+As a site user I can revieve alert message so that I know if my post was approved
+
+- User create post
+
+As a site user I can create a new post so that I can share my story
+
+- User update a post
+
+As a site user I can update the post what I created so that I can change the story
+
+- Delete Post
+
+As a site admin I can delete a post if I changed my mind
+
 #### The focus of the blog:
 
 Target audience:
@@ -119,7 +181,7 @@ III. Structures
 
 #### Organization of structure:
 
-Home page, new comment page, account page. 
+Home page, new comment page, new post page ,account page. 
 
 
 
@@ -145,15 +207,17 @@ On all pages :
 
 - from main page users can register, log in
 
+- new post page: user can create a post
+
+- the user created post can be commented also
+
+- edit, update, delete a post
+
 #### Features to implement:
-
-- create a post as a user:
-
-- modify and delete a post as a user
 
 - avatars can be selected when user is making registration
 
-- user can upload pictures
+- user created post to like or dislike
 
 - search functionate
 
@@ -192,9 +256,18 @@ Alert messages for notifications to the users, the message itself is showing and
 
 - no reverse match
 
-whne created the createview, after adding the urls and template, my plan was to import the new poststorie model to the blog view and render everything on the main page, but i got this error message. After trying many options, what i could read and find on[djangoproject](https://docs.djangoproject.com/en/4.0/topics/class-based-views/generic-display/) and contacted tutor service to try to find where the problem is.
+whne created the createview, after adding the urls and template, my plan was to import the new poststorie model to the blog view and render everything on the main page, but i got this error message. After trying many options, what i could read and find on[djangoproject](https://docs.djangoproject.com/en/4.0/topics/class-based-views/generic-display/) and contacted tutor service to try to find where the problem is. For solving the problem, i used the get_context_data method.
 
 ![noreverse](media/noreverse.png)
+
+
+Issues to be solved
+
+User created post's comments option is not functioning as expected, on a post the comment function when clicked is opening the post detail pge where user should be able to comment, but the textbox is not appering, still working on this to fix.
+
+Cloudinary: failed to load resource
+
+There is an issue with the uploading images as a user, still getting failed to load resource message. This problem is not solved yet, still working on it.
 
 ### Technologies
 
@@ -363,5 +436,7 @@ DATABASE_URL, SECRET_KEY, CLOUDINARY_URL
 5. My mentor for the feedbacks on the project 
 
 6. Code Institute tutor support for their help and support with the crash on my project
+
+7. Rebecca, tutor from Code Institute 
 
 
